@@ -11,6 +11,7 @@
     align-items: center;
     justify-content: space-around;
   }
+
   .fundo {
     background: rgb(207, 207, 207);
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
@@ -85,8 +86,6 @@
   }
   .caixa-dagua {
     display: flex;
-    min-width: 220px;
-    min-height: 150px;
     border: 0.2px #ffffff00;
     height: 150px;
     width: 280px;
@@ -168,8 +167,6 @@
 .cd {
   background: rgb(255, 255, 255);
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
-  min-width: 15rem;
-  min-height: 150px;
   width: 320px;
   border-radius: 8px;
   display: flex;

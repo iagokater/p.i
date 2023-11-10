@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
   alturaAgua: number = 0;
   mediaVolumes: number = 0;
   maiorVolume: number = 0;
-  menorVolume: number = Number.MAX_VALUE;
+  menorVolume: number = 0;
 
   constructor(private http: HttpClient) {}
 
@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
       .subscribe(
         (response) => {
           this.volumes = response;
-          this.alturaAgua = this.volumes[0].volume;
+          this.alturaAgua = this.volumes[500].volume;
           this.calcularEstatisticas();
         },
         (error) => console.error('Erro: ', error)
@@ -40,12 +40,11 @@ export class AppComponent implements OnInit {
   }
 
   getDataAPI(): Observable<IData[]> {
-    return this.http.get<IData[]>('http://192.168.86.200:3000/volume');
+    return this.http.get<IData[]>('http://localhost:3000/volume');
   }
 
   calcularEstatisticas() {
-    // Calcular a média dos volumes
-    // Calcular a média dos volumes e arredondar para baixo
+
     this.mediaVolumes = Math.floor(this.volumes.reduce((acc, volume) => acc + volume.volume, 0) / this.volumes.length);
 
     // Encontrar o maior volume e arredondar para baixo

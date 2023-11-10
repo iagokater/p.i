@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    interval(5000)
+    interval(500)
       .pipe(switchMap(() => this.getDataAPI()))
       .subscribe(
         (response) => {
@@ -40,7 +40,7 @@ export class AppComponent implements OnInit {
   }
 
   getDataAPI(): Observable<IData[]> {
-    return this.http.get<IData[]>('http://localhost:3000/volume');
+    return this.http.get<IData[]>('https://64a9-2804-1254-8180-9200-7d14-fb0d-7485-d787.ngrok.io/volume');
   }
 
   calcularEstatisticas() {

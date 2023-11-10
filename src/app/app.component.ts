@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
       .subscribe(
         (response) => {
           this.volumes = response;
-          this.alturaAgua = this.volumes[500].volume;
+          this.alturaAgua = this.volumes[0].volume;
           this.calcularEstatisticas();
         },
         (error) => console.error('Erro: ', error)

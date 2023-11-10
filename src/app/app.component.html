@@ -1,3 +1,30 @@
-<ion-app>
-  <ion-router-outlet></ion-router-outlet>
-</ion-app>
+<div class="home">
+  <div class="fundo">
+    <div class="caixaTampa">
+      <div class="sobretampa2"></div>
+      <div class="sobretampa1"></div>
+      <div class="sobretampa"></div>
+      <div class="tampa"></div>
+      <div class="caixa-dagua">
+        <div class="agua water-animation" [ngStyle]="{ 'height.%': alturaAgua / 2  }"></div>
+        <p>{{ alturaAgua}}L<span class="estilo-i"></span></p>
+      </div>
+    </div>
+  </div>
+  <div class="fundo">
+    <div class="card-container">
+      <div class="cd">
+        <h2>Max. volume</h2>
+        <p> {{maiorVolume}} Litros</p>
+      </div>
+      <div class="cd">
+        <h2>Min. volume</h2>
+        <p>{{menorVolume}} Litros</p>
+      </div>
+      <div class="cd">
+        <h2>Media volume</h2>
+        <p>{{mediaVolumes}} Litros</p>
+      </div>
+    </div>
+  </div>
+</div>

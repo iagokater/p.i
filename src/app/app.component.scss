@@ -1,0 +1,201 @@
+@media only screen and (max-width: 600px) {
+  .home {
+    height: 100vh; /* Remova a altura fixa */
+    width: 100%; /* Ajuste a largura para ocupar a largura total do dispositivo */
+    padding: 1rem;
+    background-image: url(liquid-cheese.svg);
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .fundo {
+    background: rgb(207, 207, 207);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    margin: 1rem    ;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .caixaTampa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .sobretampa2 {
+    height: 0.8rem;
+    width: 6rem;
+    border-radius: 300px 300px 0 0;
+    background-color: #001a2b;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, #1d358580, #0461a080, #1d358580);
+    border-bottom: 0.2px groove #2b2b2b24;
+  }
+  .sobretampa1 {
+    height: 0.6rem;
+    width: 14rem;
+    border-radius: 300px 300px 0 0;
+    background-color: #001a2b;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, #1d358580, #0461a080, #1d358580);
+    border-bottom: 0.2px groove #2b2b2b24;
+  }
+  .sobretampa {
+    height: 0.6rem;
+    width: 16rem;
+    border-radius: 300px 300px 0 0;
+    background-color: #001a2b;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, #1d358580, #0461a080, #1d358580);
+    border-bottom: 0.2px groove #2b2b2b24;
+  }
+
+  .tampa {
+    height: 1rem;
+    width: 20rem;
+    border-radius: 300px 300px 0 0;
+    background-color: #001a2b;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, #1d358580, #0461a080, #1d358580);
+    border-bottom: 0.2px groove #2b2b2b24;
+  }
+  .estilo-r {
+    font-size: 25px;
+    vertical-align: middle;
+    color: red;
+    display: inline-block; /* ou display: inline; */
+  }
+  .estilo-i {
+    padding-top: 25px;
+    font-size: 25px;
+    vertical-align: middle;
+    color: red;
+    display: inline-block; /* ou display: inline; */
+  }
+  .caixa-dagua {
+    display: flex;
+    min-width: 220px;
+    min-height: 150px;
+    border: 0.2px #ffffff00;
+    height: 150px;
+    width: 280px;
+    border-radius: 0 0 20px 20px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(to right, #1d358580, #0461a080, #1d358580);
+  }
+
+  .agua {
+    position: absolute;
+    bottom: -2px;
+    left: 0px;
+    width: 100%;
+    height: 0;
+    background: linear-gradient(to bottom, #00bfff, #001a2b);
+    transition: height 2s ease-out;
+  }
+
+  .agua:hover {
+    height: 100%;
+  }
+  .seta-para-cima {
+    color: green; /* ou qualquer outra estilização que você desejar para a seta para cima */
+  }
+
+  .seta-para-baixo {
+    color: red; /* ou qualquer outra estilização que você desejar para a seta para baixo */
+  }
+
+  .caixa-dagua p {
+    display: flex;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3.2rem;
+    font-weight: bold;
+    color: #fff;
+    -webkit-text-stroke: 0.1px #000000a9;
+  }
+
+  .water-animation {
+    animation: animateWater 6s ease-in-out infinite;
+  }
+
+  @keyframes animateWater {
+    0%,
+    100% {
+      clip-path: polygon(
+        0% 30%,
+        13% 25%,
+        27% 27%,
+        43% 36%,
+        55% 44%,
+        74% 47%,
+        89% 46%,
+        100% 44%,
+        100% 100%,
+        0% 99%
+      );
+    }
+    50% {
+      clip-path: polygon(
+        0 30%,
+        15% 35%,
+        35% 33%,
+        47% 25%,
+        60% 20%,
+        80% 20%,
+        95% 25%,
+        100% 35%,
+        100% 100%,
+        0% 99%
+      );
+    }
+  }
+  
+.cd {
+  background: rgb(255, 255, 255);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  min-width: 15rem;
+  min-height: 150px;
+  width: 320px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  transition: all 0.3s ease-in-out;
+  margin: 1rem 0;
+}
+
+
+.cd h2:first-child {
+    font-weight: bold;
+    color: #3b3b3b;
+    font-size: 20px;
+    margin-top: 5px;
+    margin-left: 10px;
+    text-align: flex-start;
+    letter-spacing: 1px;
+  }
+
+.cd p {
+  font-size: 36px;
+  line-height: 1.5;
+  text-align: center;
+  margin: 10px;
+  font-weight: bold;
+  color: #3b3b3b;
+}
+}

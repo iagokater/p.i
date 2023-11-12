@@ -1,35 +1,28 @@
 <div class="home">
-  <div class="config-container">
-    <h3>Configurações</h3>
-    <label for="endereco">Endereço Completo:</label>
-    <input id="endereco" [(ngModel)]="baseUrl" />
-
-    <button (click)="onConfigSave()">Salvar</button>
-  </div>
-
   <div class="caixaTampa">
     <div class="sobretampa2"></div>
     <div class="sobretampa1"></div>
     <div class="sobretampa"></div>
     <div class="tampa"></div>
     <div class="caixa-dagua">
-      <div class="agua water-animation" [ngStyle]="{ 'height.%': alturaAgua / 2.5 }"></div>
-      <p>{{ alturaAgua }}L<span class="estilo-i"></span></p>
+      <div class="agua water-animation" [ngStyle]="{ 'height.%': alturaAgua / 2.5  }"></div>
+      <p>{{ alturaAgua}}L<span class="estilo-i"></span></p>
     </div>
   </div>
+
 
   <div class="card-container">
     <div class="cd">
       <h2>Max. volume</h2>
-      <p>{{ maiorVolume }} Litros</p>
+      <p> {{maiorVolume}} Litros</p>
     </div>
     <div class="cd">
       <h2>Min. volume</h2>
-      <p>{{ menorVolume }} Litros</p>
+      <p>{{menorVolume}} Litros</p>
     </div>
     <div class="cd">
       <h2>Media volume</h2>
-      <p>{{ mediaVolumes }} Litros</p>
+      <p>{{mediaVolumes}} Litros</p>
     </div>
   </div>
 </div>

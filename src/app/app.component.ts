@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, lastValueFrom, interval } from 'rxjs';
+import { Observable, interval, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
 export interface IData {
@@ -17,7 +17,9 @@ export interface IData {
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
+  private subscription: Subscription = new Subscription();
+
   volumes: IData[] = [];
   alturaAgua: number = 0;
   mediaVolumes: number = 0;
@@ -27,10 +29,13 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    interval(500)
+    console.log('Componente inicializado');
+
+    this.subscription = interval(2000)
       .pipe(switchMap(() => this.getDataAPI()))
       .subscribe(
         (response) => {
+          console.log('Resposta da API:', response);
           this.volumes = response;
           this.alturaAgua = this.volumes[0].volume;
           this.calcularEstatisticas();
@@ -39,18 +44,24 @@ export class AppComponent implements OnInit {
       );
   }
 
+  ngOnDestroy() {
+    console.log('Componente destruído');
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
+  }
+
   getDataAPI(): Observable<IData[]> {
-    return this.http.get<IData[]>('https://64a9-2804-1254-8180-9200-7d14-fb0d-7485-d787.ngrok.io/volume');
+    return this.http.get<IData[]>('http://131.196.154.39:23130/volume');
   }
 
   calcularEstatisticas() {
+    this.mediaVolumes = Math.floor(
+      this.volumes.reduce((acc, volume) => acc + volume.volume, 0) / this.volumes.length
+    );
 
-    this.mediaVolumes = Math.floor(this.volumes.reduce((acc, volume) => acc + volume.volume, 0) / this.volumes.length);
+    this.maiorVolume = Math.floor(Math.max(...this.volumes.map((volume) => volume.volume)));
 
-    // Encontrar o maior volume e arredondar para baixo
-    this.maiorVolume = Math.floor(Math.max(...this.volumes.map(volume => volume.volume)));
-
-    // Encontrar o menor volume e arredondar para baixo
-    this.menorVolume = Math.floor(Math.min(...this.volumes.map(volume => volume.volume)));
+    this.menorVolume = Math.floor(Math.min(...this.volumes.map((volume) => volume.volume)));
   }
 }

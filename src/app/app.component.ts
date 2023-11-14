@@ -25,6 +25,12 @@ export class AppComponent implements OnInit, OnDestroy {
   mediaVolumes: number = 0;
   maiorVolume: number = 0;
   menorVolume: number = 0;
+  temperatura: IData[] = [];
+  alturaTemperatura: number = 0;
+  mediaTemperatura: number = 0;
+  maiorTemperatura: number = 0;
+  menorTemperatura: number = 0;
+  DataHora: string = '';
 
   constructor(private http: HttpClient) {}
 
@@ -39,6 +45,9 @@ export class AppComponent implements OnInit, OnDestroy {
           this.volumes = response;
           this.alturaAgua = this.volumes[0].volume;
           this.calcularEstatisticas();
+          this.alturaTemperatura = this.volumes[0].temperatura;
+          this.DataHora = new Date(this.volumes[0].DataHora).toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' });
+
         },
         (error) => console.error('Erro: ', error)
       );
@@ -52,7 +61,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   getDataAPI(): Observable<IData[]> {
-    return this.http.get<IData[]>('http://apicollab.dyndns.org:23130/volume');
+    return this.http.get<IData[]>('http://192.168.86.200:3000/volume');
   }
 
   calcularEstatisticas() {
@@ -63,5 +72,14 @@ export class AppComponent implements OnInit, OnDestroy {
     this.maiorVolume = Math.floor(Math.max(...this.volumes.map((volume) => volume.volume)));
 
     this.menorVolume = Math.floor(Math.min(...this.volumes.map((volume) => volume.volume)));
+
+    this.mediaTemperatura = Math.floor(
+      this.volumes.reduce((acc, volume) => acc + volume.temperatura, 0) / this.volumes.length
+    );
+
+    this.maiorTemperatura = Math.floor(Math.max(...this.volumes.map((volume) => volume.temperatura)));
+
+    this.menorTemperatura = Math.floor(Math.min(...this.volumes.map((volume) => volume.temperatura)));
+    
   }
 }

@@ -1,28 +1,45 @@
 <div class="home">
-  <div class="caixaTampa">
-    <div class="sobretampa2"></div>
-    <div class="sobretampa1"></div>
-    <div class="sobretampa"></div>
-    <div class="tampa"></div>
-    <div class="caixa-dagua">
-      <div class="agua water-animation" [ngStyle]="{ 'height.%': alturaAgua / 2.5  }"></div>
-      <p>{{ alturaAgua}}L<span class="estilo-i"></span></p>
+  <header>
+    <h2> Water Watch</h2>
+  </header>
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <div class="caixaTampa">
+          <div class="sobretampa2"></div>
+          <div class="sobretampa1"></div>
+          <div class="sobretampa"></div>
+          <div class="tampa"></div>
+          <div class="caixa-dagua">
+            <div class="agua water-animation" [ngStyle]="{ 'height.%': alturaAgua / 2.5  }"></div>
+            <p>{{ alturaAgua}}L<span class="estilo-i"></span></p>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card-back">
+        <p class="title">BACK</p>
+        <p>Leave Me</p>
+      </div>
     </div>
   </div>
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <div class="termometro">
 
-
-  <div class="card-container">
-    <div class="cd">
-      <h2>Max. volume</h2>
-      <p> {{maiorVolume}} Litros</p>
-    </div>
-    <div class="cd">
-      <h2>Min. volume</h2>
-      <p>{{menorVolume}} Litros</p>
-    </div>
-    <div class="cd">
-      <h2>Media volume</h2>
-      <p>{{mediaVolumes}} Litros</p>
+          <div class="logo">
+            <div class="bar">
+              <div class="bar-after" [ngStyle]="{ 'height.%': alturaTemperatura * 2}"></div>
+            </div>
+            <div class="circle"></div>
+          </div>
+          <h1>{{alturaTemperatura}}°C <span class="estilo-r"></span></h1>
+        </div>
+      </div>
+      <div class="flip-card-back">
+        <p class="title">BACK</p>
+        <p>Leave Me</p>
+      </div>
     </div>
   </div>
 </div>
